@@ -147,7 +147,7 @@ include '../../bd/conexion.php';
 
                                           <select class="form-select" aria-label="Default select example" id="comuna"
                                             name="comuna">
-                                            <option selected>selecione la comuna </option>
+                                            <option selected disabled="disabled">selecione la comuna </option>
                                             <option value="1">puenes</option>
                                             <option value="2">altamira</option>
                                             <option value="3">la floresta </option>
@@ -173,7 +173,7 @@ include '../../bd/conexion.php';
                                         <div class="form-group">
                                           <label for="txt_telefono">Telefono</label>
                                           <input type="text" class="form-control" id="telefono" name="telefono"
-                                            placeholder="3185665665">
+                                            placeholder="Telefono">
                                         </div>
 
 

@@ -91,30 +91,47 @@
                         <?php
 
                         include '../../bd/conexion.php'; 
-
                         $id = $_POST['id'];
                         $pNombre = $_POST['pNombre'];
                         $pApellido = $_POST['pApellido'];
                         $edad = $_POST['edad'];
                         $comuna = $_POST['comuna'];
-
-                        
                         $correo = $_POST['correo'];
                         $telefono = $_POST['telefono'];
                         
-                        
-
-
+                        $ban=0;
+                        if ($id == ' '){
+                          $ban=1;
+                        }
+                        if($pNombre == ""){
+                          $ban=1;
+                        }
+                        if($pApellido == ""){
+                          $ban=1;
+                        }
+                        if($edad == ""){
+                          $ban=1;
+                        }
+                        if($comuna == ""){
+                          $ban=1;
+                        }
+                        if($correo == ""){
+                          $ban=1;
+                        }
+                        if($telefono == ""){
+                          $ban=1;
+                        }
+                        if ($ban==0){
                         $sql="UPDATE usuario SET id = '$id',
                         pNombre = '$pNombre',
                         pApellido = '$pApellido',
                         edad = '$edad',
-                        comuna = '$comuna',
+                        ciudad = '$comuna',
                         
                         correo = '$correo',
                         telefono = '$telefono'
                         where id='$id'";
-
+                        
                         if($conexion->query($sql) === TRUE) {
                           echo('
                             <!-- Main content -->
@@ -147,6 +164,7 @@
                                   <div class="card card-danger">
                                     <div class="card-header">
                                       <h3 class="card-title"> Operación fallida </h3>
+                                      <h5>Campos vacíos</h5>
                                     </div>
                                     <!-- /.card-header -->
                                     <!-- form start -->  
@@ -158,7 +176,27 @@
                           ');
                         }
                         mysqli_close($conexion);  // Cierra la conexion
-
+                      }else{
+                        echo('
+                          <!-- Main content -->
+                          <section class="content">
+                            <div class="row">
+                              <!-- left column -->
+                              <div class="col-md-12">
+                                <!-- general form elements -->
+                                <div class="card card-danger">
+                                  <div class="card-header">
+                                    <h3 class="card-title"> Operación fallida </h3>
+                                  </div>
+                                  <!-- /.card-header -->
+                                  <!-- form start -->  
+                                </div>
+                                <!-- /.card -->
+                              </div>
+                            </div>      
+                          </section>
+                        ');
+                      }
                           ?>
 
 

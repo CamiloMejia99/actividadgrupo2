@@ -89,46 +89,132 @@
                         $correo = $_POST['correo'];
                         $telefono = $_POST['telefono'];
                         $res="";
-
-                        $sql1 = "SELECT * FROM `usuario` WHERE id=$id;";
-                        $sql = "INSERT INTO usuario(id,pNombre, pApellido, edad, comuna,  correo, telefono)
-                        values ('$id','$pNombre', '$pApellido','$edad','$comuna','$correo','$telefono' )";
-
-
-                        if($conexion->query($sql1) == TRUE) {
-                          
-                          $res="ya existe usuario con cedula $id";
-
-                        }else
-                        {
-                            if ($conexion->query($sql) == TRUE) {
-                            $res="Registro exitoso";
-                            
-                          }
-                          else{
-                            $res="Registro rechazado";
+                        $resol='';
+                        $row = '';
+                        $ban=0;
+                        if ($id == ""){
+                          $ban=1;
+                        }else{
+                          $validar = "SELECT * FROM `usuario` WHERE id=$id;";
+                          $validando = $conexion->query($validar);
+                          if( $validando->num_rows > 0){
+                              $ban=2; 
                           }
                         }
+                        if($pNombre == ""){
+                          $ban=1;
+                        }
+                        if($pApellido == ""){
+                          $ban=1;
+                        }
+                        if($edad == ""){
+                          $ban=1;
+                        }
                         
-                        ?>
+                        if($correo == ""){
+                          $ban=1;
+                        }
+                        if($telefono == ""){
+                          $ban=1;
+                        }
+                        if ($ban==0){
+                          
+                          $sql = "INSERT INTO usuario(id,pNombre, pApellido, edad, ciudad,  correo, telefono)
+                          values ('$id','$pNombre', '$pApellido','$edad','$comuna','$correo','$telefono' )";
 
-                        <section class="content">
-                          <div class="row">
-                            <!-- left column -->
-                            <div class="col-md-12">
-                              <!-- general form elements -->
-                              <div class="card card-success">
-                                <div class="card-header">
-                                  <h3 class="card-title"> <?php echo $res?>
-                                   </h3>
-                                </div>
-                                <div class="card-footer">
-                                    <a href="list.php"  class="btn btn-info"> ← REGRESAR AL LISTADO </a>
-                                </div>
-                              </div>
-                            </div>
-                          </div>      
-                        </section>
+                         
+                              if ($conexion->query($sql) ) {
+                              echo('
+                                <section class="content">
+                                  <div class="row">
+                                    <!-- left column -->
+                                    <div class="col-md-12">
+                                      <!-- general form elements -->
+                                      <div class="card card-success">
+                                        <div class="card-header">
+                                          <h3 class="card-title"> Registro exitoso
+                                          </h3>
+                                        </div>
+                                        <div class="card-footer">
+                                            <a href="list.php"  class="btn btn-info"> ← REGRESAR AL LISTADO </a>
+                                            <a href="register.php"  class="btn btn-warning"> → REGISTRAR PERSONA </a>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>      
+                                </section>
+                              ');
+                              
+                            }
+                            else{
+                              echo('
+                                <section class="content">
+                                  <div class="row">
+                                    <!-- left column -->
+                                    <div class="col-md-12">
+                                      <!-- general form elements -->
+                                      <div class="card card-danger">
+                                        <div class="card-header">
+                                          <h3 class="card-title"> Registro rechazado
+                                          </h3>
+                                        </div>
+                                        <div class="card-footer">
+                                            <a href="list.php"  class="btn btn-info"> ← REGRESAR AL LISTADO </a>
+                                            <a href="register.php"  class="btn btn-warning"> → REGISTRAR PERSONA </a>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>      
+                                </section>
+                              ');
+                            }
+                          
+                        }else{
+                          if ($ban == 1)
+                            echo('
+                                <section class="content">
+                                  <div class="row">
+                                    <!-- left column -->
+                                    <div class="col-md-12">
+                                      <!-- general form elements -->
+                                      <div class="card card-danger">
+                                        <div class="card-header">
+                                          <h3 class="card-title"> Existen campos vacíos
+                                          </h3>
+                                        </div>
+                                        <div class="card-footer">
+                                            <a href="list.php"  class="btn btn-info"> ← REGRESAR AL LISTADO </a>
+                                            <a href="register.php"  class="btn btn-warning"> → REGISTRAR PERSONA </a>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>      
+                                </section>
+                              ');
+                          if ($ban == 2)  
+                          echo('
+                                <section class="content">
+                                  <div class="row">
+                                    <!-- left column -->
+                                    <div class="col-md-12">
+                                      <!-- general form elements -->
+                                      <div class="card card-danger">
+                                        <div class="card-header">
+                                          <h3 class="card-title"> ya existe usuario con cedula '.$id.'
+                                          </h3>
+                                        </div>
+                                        <div class="card-footer">
+                                            <a href="list.php"  class="btn btn-info"> ← REGRESAR AL LISTADO </a>
+                                            <a href="register.php"  class="btn btn-warning"> → REGISTRAR PERSONA </a>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>      
+                                </section>
+                              ');
+                        }
+                        ?>
+                        
 
                       </div>
                     </div>

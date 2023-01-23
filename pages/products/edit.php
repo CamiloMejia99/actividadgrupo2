@@ -101,6 +101,7 @@
                         $sql = "SELECT * FROM usuario WHERE id = '$id'";
                         $resultado = $conexion->query($sql);
                         $row = $resultado->fetch_array();
+                        $comuna = "";
                       ?>
 
                       <section class="content">
@@ -130,7 +131,7 @@
                                       <div class="form-group">
                                         
                                         <label for="id_categoria">Id</label>
-                                        <input type="text" class="form-control" id="id"  name="id" value ="<?php echo $row['id'] ?>">
+                                        <input type="text" class="form-control" id="id"  name="id" value ="<?php echo $row['id'] ?>" >
                                       </div>
 
                                       <div class="form-group">
@@ -150,11 +151,34 @@
                                         <label for="txt_edad">Edad</label>
                                         <input type="text" class="form-control" id="edad"  name="edad" value="<?php echo $row['edad']?>">
                                       </div>
-                                    
-                                    
+                                      <?php
+                                      if ($row['ciudad'] == 1 ){$comuna= 'puenes';}
+                                      if ($row['ciudad'] == 2 ){$comuna= 'altamira';}
+                                      if ($row['ciudad'] == 3 ){$comuna= 'la floresta';}
+                                      if ($row['ciudad'] == 4 ){$comuna= 'san vicente';}
+                                      if ($row['ciudad'] == 5 ){$comuna= 'el lago';}
+                                      if ($row['ciudad'] == 6 ){$comuna= 'el charco';}
+                                      if ($row['ciudad'] == 7 ){$comuna= 'los chilcos';}
+                                      if ($row['ciudad'] == 8 ){$comuna= 'los marcos';}
+                                      if ($row['ciudad'] == 9 ){$comuna= 'san jose';}
+                                      if ($row['ciudad'] == 10){$comuna= 'puente del negrito';}
+                                      ?>
                                       <div class="form-group">
                                         <label for="txt_ciudad">comuna</label>
-                                        <input type="text" class="form-control" id="comuna"  name="comuna" value="<?php echo $row['comuna']?>">
+                                        <select class="form-select" aria-label="Default select example" id="comuna"
+                                            name="comuna">
+                                            <option selected value=<?php echo $row['ciudad']?> ><?php echo $comuna?> </option>
+                                            <option value="1">puenes</option>
+                                            <option value="2">altamira</option>
+                                            <option value="3">la floresta </option>
+                                            <option value="4">san vicente </option>
+                                            <option value="5">el lago </option>
+                                            <option value="6">el charco </option>
+                                            <option value="7">los chilcos </option>
+                                            <option value="8">los marcos </option>
+                                            <option value="9">san jose </option>
+                                            <option value="10">puente del negrito </option>
+                                          </select>
                                       </div>
 
                                       
@@ -197,6 +221,5 @@
     </div>
   </div>
 </div>  
-
 </body>
 </html>

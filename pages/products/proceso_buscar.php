@@ -99,7 +99,8 @@
                         $id = $_POST['idBuscar'];
                         $sql = "SELECT * FROM usuario WHERE id = '$id'";
                         $i = 0;
-                        if ($resultado = $conexion->query($sql)) {
+                        $resultado = $conexion->query($sql);
+                        if ($resultado->num_rows > 0) {
                           echo ('
                                 <div class="card-body table-responsive p-0">
                                 <table class="table table-hover text-nowrap">
@@ -126,7 +127,7 @@
                             $pNombre = $row['pNombre'];
                             $pApellido = $row['pApellido'];
                             $edad = $row['edad'];
-                            $comuna = $row['comuna'];
+                            $comuna = $row['ciudad'];
 
 
                             $correo = $row['correo'];
@@ -166,6 +167,13 @@
                                     </tbody>
                                     </table>
                                 ');
+                        }else{
+                          echo ('
+                                    
+                                    <center>
+                                      <h1> PERSONA NO ENCONTRADA </h1>
+                                    </center>
+                                  ');
                         }
                         ?>
                           </div>

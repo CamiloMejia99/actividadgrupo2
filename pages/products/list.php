@@ -48,6 +48,11 @@ include '../../bd/conexion.php';
       background-image: url(img/fondo1.png);
       background-size: cover;
     }
+    input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button { 
+      -webkit-appearance: none; 
+      margin: 0; 
+    }
   </style>
 
 </head>
@@ -93,18 +98,17 @@ include '../../bd/conexion.php';
                                 <h1 class="m-0">DATOS PERSONALES</h1>
                               </div>
                               <a href="register.php" class="btn btn-success"> Click aqui para registrar </a>
-
-                              <a href="buscar.php" class="btn btn-success"> Click aqui para consultar </a>
-
-                              
+                              &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp
+                              &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp
+                              &nbsp &nbsp &nbsp &nbsp 
                               <form action="proceso_buscar.php" method="post">
-                              <label for="id">buscar id</label>
-                              <input class='col-3 m-1' type="text" class="form-control" id="idBuscar" name="idBuscar" value="5555">
-                              
-                              
-                              <button type="submit" class="btn btn-success">
-                                consultar 
-                              </button>
+                                <label for="id">buscar id</label>
+                                <input class='col-3 m-1' type="number" class="form-control" id="idBuscar" name="idBuscar" placeholder="id">
+                                
+                                
+                                <button type="submit" class="btn btn-success">
+                                  consultar 
+                                </button>
                               </form>
                             </div><!-- /.row -->
                           </div><!-- /.container-fluid -->
@@ -123,7 +127,8 @@ include '../../bd/conexion.php';
                               <?php
                               $sql = "SELECT * FROM usuario";
                               $i = 0;
-                              if ($resultado = $conexion->query($sql)) {
+                              $resultado = $conexion->query($sql);
+                              if ($resultado->num_rows > 0) {
                                 echo ('
                                         <div class="card-body table-responsive p-0">
                                         <table class="table table-hover text-nowrap">
@@ -154,8 +159,17 @@ include '../../bd/conexion.php';
                                   $pApellido = $row['pApellido'];
 
                                   $edad = $row['edad'];
-                                  $ciudad = $row['comuna'];
-
+                                  $ciudad = $row['ciudad'];
+                                  if ($ciudad == 1){$ciudad= 'puenes';}
+                                  if ($ciudad == 2){$ciudad= 'altamira';}
+                                  if ($ciudad == 3 ){$ciudad= 'la floresta';}
+                                  if ($ciudad == 4 ){$ciudad= 'san vicente';}
+                                  if ($ciudad == 5 ){$ciudad= 'el lago';}
+                                  if ($ciudad == 6 ){$ciudad= 'el charco';}
+                                  if ($ciudad == 7 ){$ciudad= 'los chilcos';}
+                                  if ($ciudad == 8 ){$ciudad= 'los marcos';}
+                                  if ($ciudad == 9 ){$ciudad= 'san jose';}
+                                  if ($ciudad == 10){$ciudad= 'puente del negrito';}
                                   $correo = $row['correo'];
                                   $telefono = $row['telefono'];
 
@@ -189,6 +203,13 @@ include '../../bd/conexion.php';
                                             </tbody>
                                             </table>
                                         ');
+                              }else{
+                                echo ('
+                                          
+                                          <center>
+                                            <h1> NO HAY DATOS QUE MOSTRA </h1>
+                                          </center>
+                                        ');
                               }
                               ?>
                             </div>
@@ -211,7 +232,7 @@ include '../../bd/conexion.php';
   mysqli_close($conexion);
 
   ?>
-  <script src="confirmacion.js"></script>
+  <script src="js/confirmacion.js"></script>
 </body>
 
 </html>
