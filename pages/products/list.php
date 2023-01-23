@@ -135,10 +135,10 @@ include '../../bd/conexion.php';
                                           <thead>
                                             <tr>
                                               <th>#</th>  
-                                              <th>ID</th> 
-                                              <th>Nombres</th>
+                                              <th>(id) Cedula</th> 
+                                              <th>Nombre (s)</th>
 
-                                              <th>Apellidos</th>
+                                              <th>Apellido (s)</th>
 
                                               <th>Edad</th>
                                               <th>comuna</th>
@@ -170,6 +170,7 @@ include '../../bd/conexion.php';
                                   if ($ciudad == 8 ){$ciudad= 'los marcos';}
                                   if ($ciudad == 9 ){$ciudad= 'san jose';}
                                   if ($ciudad == 10){$ciudad= 'puente del negrito';}
+                                  if ($ciudad == 11){$ciudad= 'Otros';}
                                   $correo = $row['correo'];
                                   $telefono = $row['telefono'];
 
@@ -207,7 +208,7 @@ include '../../bd/conexion.php';
                                 echo ('
                                           
                                           <center>
-                                            <h1> NO HAY DATOS QUE MOSTRA </h1>
+                                            <h1> NO HAY DATOS QUE MOSTRAR </h1>
                                           </center>
                                         ');
                               }

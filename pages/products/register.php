@@ -125,15 +125,15 @@ include '../../bd/conexion.php';
                                         </div>
 
                                         <div class="form-group">
-                                          <label for="txt_pNombre">Nombre</label>
+                                          <label for="txt_pNombre">Nombre (s)</label>
                                           <input type="text" class="form-control" id="pNombre" name="pNombre"
-                                            placeholder="Primer Nombre">
+                                            placeholder="Nombre(s)">
                                         </div>
 
                                         <div class="form-group">
-                                          <label for="txt_pApellido">Apellido</label>
+                                          <label for="txt_pApellido">Apellido (s)</label>
                                           <input type="text" class="form-control" id="pApellido" name="pApellido"
-                                            placeholder="Primer Apellido">
+                                            placeholder="Apellido (s)">
                                         </div>
 
                                         <div class="form-group">
@@ -158,6 +158,7 @@ include '../../bd/conexion.php';
                                             <option value="8">los marcos </option>
                                             <option value="9">san jose </option>
                                             <option value="10">puente del negrito </option>
+                                            <option value="11">Otros </option>
                                           </select>
 
                                         </div>

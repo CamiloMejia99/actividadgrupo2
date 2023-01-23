@@ -178,6 +178,7 @@
                                             <option value="8">los marcos </option>
                                             <option value="9">san jose </option>
                                             <option value="10">puente del negrito </option>
+                                            <option value="11">Otros </option>
                                           </select>
                                       </div>
 
@@ -190,7 +191,7 @@
 
                                       <div class="form-group">
                                         <label for="txt_telefono">Telefono</label>
-                                        <input type="number" class="form-control" id="telefono"  name="telefono" value="<?php echo $row['telefono']?>">
+                                        <input type="text" class="form-control" id="telefono"  name="telefono" value="<?php echo $row['telefono']?>">
                                       </div>     
 
 
