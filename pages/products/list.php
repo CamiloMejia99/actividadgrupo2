@@ -216,7 +216,7 @@ include '../../bd/conexion.php';
                             </div>
                           </div>
                         </section>
-
+                        <!--------------------->
                       </div>
                     </div>
                   </div>

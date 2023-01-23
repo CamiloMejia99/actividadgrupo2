@@ -42,7 +42,7 @@ include 'bd/conexion.php';
 
   <style>
     body {
-      background-image: url(img/fondo1.png);
+      background-image: url(img/fondo.png);
       background-size: cover;
     }
   </style>
@@ -55,7 +55,6 @@ include 'bd/conexion.php';
       <div class="row">
         <div class="col-8">
           <h6>UNIVERSIDAD DE NARIÑO EXTENSIÓN IPIALES</h6>
-          <h6>FACULTAD DE INGENIERIA</h6>
           <h6>PROGRAMA DE INGENIERIA DE SISTEMAS</h6>
           <h6>GRUPO 2</h6>
         </div>
@@ -110,7 +109,7 @@ include 'bd/conexion.php';
       </div>
     </div>
   </div>
-  <br><br><br><br><br>
+  <br><br><br><br><br><br><br>
       <center>
         <table width="1536">
           <tr>
