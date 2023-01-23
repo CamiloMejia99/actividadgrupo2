@@ -1,6 +1,6 @@
 <?php
 include 'bd/conexion.php';
-?>
+?> 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -55,7 +55,8 @@ include 'bd/conexion.php';
       <div class="row">
         <div class="col-8">
           <h6>UNIVERSIDAD DE NARIÑO EXTENSIÓN IPIALES</h6>
-          <h6>DESARROLLADO POR:</h6>
+          <h6>FACULTAD DE INGENIERIA</h6>
+          <h6>PROGRAMA DE INGENIERIA DE SISTEMAS</h6>
           <h6>GRUPO 2</h6>
         </div>
         <div class="col-4">
@@ -67,6 +68,7 @@ include 'bd/conexion.php';
   </font>   
 
   <div class="divisor"></div>
+  <br><br>
 
   <div class="container">
     <div class="row">
@@ -108,6 +110,24 @@ include 'bd/conexion.php';
       </div>
     </div>
   </div>
+  <br><br><br><br><br>
+      <center>
+        <table width="1536">
+          <tr>
+            <td bgcolor="#1212C0">
+              <div>
+                <div class="footer">
+                    <div class="container-fluid  text-center p-1 text-light">
+                      <p class="small">&copy; Todos los derechos reservados. </p>
+                      <p class="small"> 2023</p>
+                      <p id="despor">DESARROLLADOR POR: grupo II - Asignatura de programacion avanzada.</p>
+                    </div>
+                  </div>
+                </div>
+              </td> 
+            </tr>
+        </table>
+      </center>
 
 </body>
 </html>
